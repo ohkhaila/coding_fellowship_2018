@@ -1,16 +1,17 @@
 <?php
-
+//NOT SURE HOW TO CONNECT DATABASE... I'M UNDER THE IMPRESSION THAT I HAVE THE INFORMATION THAT I NEED BUT I MUST BE DOING SOMETHING WRONG
+ die('here');
 //Use the values from config.php to make a connection to the database. Since this
 //isn't in a function, it will happen automatically right now, but you could
 //easily wrap it in a function if you want to control when the db connection is
 //initiated.
-$dsn = "mysql:host=".DB_HOSTNAME.";dbname=".DB_DATABASE.";charset=utf8";
+$dsn = "mysql:host=".localhost.";dbname=".fellowship.";charset=utf8";
 $opt = array(
     PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
     PDO::ATTR_EMULATE_PREPARES   => false,
 );
-$pdo = new PDO($dsn, DB_USERNAME, DB_PASSWORD, $opt);
+$pdo = new PDO($dsn, cf, password, $opt);
 
 //Note this is a homemade function that wraps around the default PHP/MySQL PDO
 //to make it a bit easier to make database calls. It assumes there's only one database
