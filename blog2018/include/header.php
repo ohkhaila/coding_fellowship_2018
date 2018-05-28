@@ -28,6 +28,7 @@
 		 </div>
 </html>
 <?php
+//github is the worst
 //could also include the echoFooter function
 /* function echoFooter(){
 	echo"
