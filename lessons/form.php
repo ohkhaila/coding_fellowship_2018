@@ -2,42 +2,49 @@
 //why do we include this at the top?
 //tk note: The code to process the form only runs if it was submitted
 
-if(isset($_REQUEST['jobApplication'])){
+/*if(isset($_REQUEST['jobApplication'])){
 	//tk note: All the values from the form are available in $_REQUEST
 //pseudocode:
 //step by step of what $_REQUEST does... maybe have a fellow try to explain it
+//$_REQUEST is every piece of data submitted in the form
 			submitApplication(
 							$_REQUEST['name'], //remember to mention the comma (what it separates)
 							$_REQUEST['phone'], //request the value entered for phone
 							$_REQUEST['position'] //why no comma here?
 				);
 }
+*/
 
-/*
 //validation
 
 $errors = array();
 if(isset($_REQUEST['jobApplication'])){
-
-	if(isset($_REQUEST['name'])){  				//why isset again?
+//errors has to be inside of the isset array
+	if($_REQUEST['name'] ==''){
+		//trim removes all white space around a string
+		//you could also write as if $_REQUEST['name']==''				//why isset again?
 		$errors['name'] = 'required';
 	}
 	//why don't we use if/else
-	if($_REQUEST['phone']){
+	if($_REQUEST['phone'] == ''){
 		$errors['phone'] = 'required';
 	}
-	if(sizeof($errors)==0){				//sizeof is a built in php function
-		submitApplication(
-			$_REQUEST['name'],
-			$_REQUEST['phone'],
-			$_REQUEST['position']
-		);
+	//we've populated the errors array now what do we do with it?
+	if(sizeof($errors)==0){				//sizeof is a built in php function takes an arrya and tells you how many items are in interface
+				submitApplication(
+					$_REQUEST['name'],
+					$_REQUEST['phone'],
+					$_REQUEST['position']
+				);
 	}
+
+	//let's var_dump this so that we can see what errors are there
+	//var_dump($errors);
 else{
-	die("wtf dude. there were errors.");
+	echo"wtf dude. there were errors.";
 }
 }
-*/
+
 
 
 
@@ -79,8 +86,10 @@ echo"
 
 
 		function submitApplication($name, $phone, $position){
+			//lesson notes: explained "scope" of variables
 			//create a function called submitApplication and expect to receive arguments for name, phone, and application
 /*why use die instead of echo?*/
+//usually redirect to another page instead of die
 			die("
 						<h1>
 								$name just applied

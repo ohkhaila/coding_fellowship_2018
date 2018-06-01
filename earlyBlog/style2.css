@@ -1,0 +1,12 @@
+.topNav ul{
+
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	background-color: #055333;
+
+}
+.topNav li{
+	display: block;
+	width: 60px;
+}
