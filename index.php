@@ -49,7 +49,7 @@
 		foreach($posts as $index => $post){
 						echo "
 						<li>
-								<a href = '/view/viewpost.php?postId=$index'>$post[title]</a>
+								<a href = '/view/viewpost.php?blogPostId=$index'>$post[title]</a>
 								";
 		}
 

@@ -1,14 +1,14 @@
 <?php
 
 //This function is getting a secific blog post from the database
-function getPost($PostId) {
+function getPost($blogPostId) {
     $result=dbQuery("
         SELECT *
         FROM posts
-        WHERE PostId = :PostId
+        WHERE blogPostId = :blogPostId
         ",
         array(
-            "PostId"=>$PostId,
+            "blogPostId"=>$blogPostId,
         ));
 return $result->fetch();
     }

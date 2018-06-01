@@ -1,68 +1,68 @@
 <?php
-function getCommentsForPost($BlogPostId){
+function getCommentsForPost($blogPostId){
 
     $result=dbQuery("
     SELECT *
     FROM comments
-    WHERE BlogPostId = :BlogPostId
-    ", array('BlogPostId' => $BlogPostId));
+    WHERE blogPostId = :blogPostId
+    ", array('blogPostId' => $blogPostId));
     return $result->fetchAll();
 }
 
-//i think the function below is not used... 
-function getComments9($PostId) {
+//i think the function below is not used...
+function getComments9($blogPostId) {
 		$result=dbQuery("
 				SELECT *
 				FROM comments
-				WHERE BlogPostId = :BlogPostId
+				WHERE blogPostId = :blogPostId
 				",
 				array(
-						"PostId"=>$PostId,
+						"blogPostId"=>$blogPostId,
 				));
 
 return $result->fetch();
 }
 
-function saveComment($BlogPostId){
-    $Name=$_POST['Name'];
-    $Email=$_POST['Email'];
-   	$Comment=$_POST['Comment'];
+function saveComment($blogPostId){
+    $name=$_POST['name'];
+    $email=$_POST['email'];
+   	$comment=$_POST['comment'];
 
-    $result=dbQuery("INSERT INTO comments (BlogPostId, Name, Email, Comment)
-    VALUES (:BlogPostId, :Name, :Email, :Comment)",
+    $result=dbQuery("INSERT INTO comments (blogPostId, name, email, comment)
+    VALUES (:blogPostId, :name, :email, :comment)",
 
     array(
-        'BlogPostId'=>$BlogPostId ,
-        'Name'=>$Name,
-        'Email'=>$Email,
-        'Comment'=>$Comment,
+        'blogPostId'=>$blogPostId ,
+        'name'=>$name,
+        'email'=>$email,
+        'comment'=>$comment,
     ));
 }
 
-function getComment($CommentId){
+function getComment($commentId){
 
     $result=dbQuery("
     SELECT*
     FROM comments
-    WHERE CommentId=CommentId
+    WHERE commentId=commentId
     ");
     return $result->fetch();
 }
 
 //below moved from viewpost.php
 if(isset($_REQUEST['commentFormSubmit'])) {
-     saveComment($BlogPostId);
+     saveComment($blogPostId);
 }
 
 ?>
 <html>
 </br>
     <form method='post' name='comment'>
-        NAME: <input type = 'text' name='Name' id='Name'/><br/>
-        Email:<input type = 'text' name='Email' id='Email'/><br/>
+        NAME: <input type = 'text' name='name' id='name'/><br/>
+        Email:<input type = 'text' name='email' id='email'/><br/>
         Comment:<br/>
         <input type="hidden" name="getCommentsForPost" value="true"/>
-        <textarea name='Comment' id='Comment'></textarea>
+        <textarea name='comment' id='comment'></textarea>
         <input type='submit' name='commentFormSubmit' value='Submit'/>
         <!-- call a function when you submit -->
     </form>
@@ -72,12 +72,12 @@ if(isset($_REQUEST['commentFormSubmit'])) {
 //saving comments to database
 // getCommentsForPost($BlogPostId);
     //Displaying comments
-$Comments=getCommentsForPost($BlogPostId);
-foreach ($Comments as $Comment){
+$Comments=getCommentsForPost($blogPostId);
+foreach ($comments as $comment){
     //$ShowComment= getComment($_REQUEST['CommentId']);
 
 
     echo "
-    <h2>".$Comment['Name']."</h2>
-    <body>".$Comment['Comment']."</body>";
+    <h2>".$comment['name']."</h2>
+    <body>".$comment['comment']."</body>";
 }
