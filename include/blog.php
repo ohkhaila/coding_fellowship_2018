@@ -24,11 +24,63 @@ return $result->fetch();
     return $result->fetchAll();
     }
 
-// I have  been trying to create a function that creates a link for each new blog post
-        //foreach($Post as $indiv){
-            // $indiv['title']
-        //    echo "
-        //    <a href='/public/viewpost.php?$BlogPostId=".$indiv['PostId']."'>".$indiv['Title']."</a>";
 
-        //}
-        ?>
+		function getCommentsForPost($blogPostId){
+
+		    $result=dbQuery("
+		    SELECT *
+		    FROM comments
+		    WHERE blogPostId = :blogPostId
+		    ", array('blogPostId' => $blogPostId));
+		    return $result->fetchAll();
+		}
+
+		//i think the function below is not used...
+		function getComments9($blogPostId) {
+				$result=dbQuery("
+						SELECT *
+						FROM comments
+						WHERE blogPostId = :blogPostId
+						",
+						array(
+								"blogPostId"=>$blogPostId,
+						));
+
+		return $result->fetch();
+		}
+
+		function saveComment($blogPostId){
+		    $name=$_POST['name'];
+		    $email=$_POST['email'];
+		   	$comment=$_POST['comment'];
+
+		    $result=dbQuery("INSERT INTO comments (blogPostId, name, email, comment)
+		    VALUES (:blogPostId, :name, :email, :comment)",
+
+		    array(
+		        'blogPostId'=>$blogPostId ,
+		        'name'=>$name,
+		        'email'=>$email,
+		        'comment'=>$comment,
+		    ));
+		}
+
+		function getComment($commentId){
+
+		    $result=dbQuery("
+		    SELECT*
+		    FROM comments
+		    WHERE commentId=commentId
+		    ");
+		    return $result->fetch();
+		}
+$blogPostId = $_REQUEST['blogPostId'];
+		//below moved from viewpost.php
+		if(isset($_REQUEST['commentFormSubmit'])) {
+		     saveComment($blogPostId);
+		}
+
+		?>
+		<html>
+
+		</html>
