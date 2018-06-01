@@ -13,18 +13,7 @@ function getPost($PostId) {
 return $result->fetch();
     }
 
-    function getComments9($PostId) {
-        $result=dbQuery("
-            SELECT *
-            FROM comments
-            WHERE BlogPostId = :BlogPostId
-            ",
-            array(
-                "PostId"=>$PostId,
-            ));
-            
-    return $result->fetch();
-    }
+
 //This function is getting all blog posts from the database
     function getAllBlogPosts(){
         $result=dbQuery("
