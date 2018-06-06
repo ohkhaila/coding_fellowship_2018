@@ -18,6 +18,7 @@
             echo '<div id="nav">';
                 echo '<ul>';
                     echo '<li><a href="/index.php">Home</a></li>';
+										echo '<li><a href="/view/lessons.php">Lessons</a></li>';
                     echo '<li><a href="/view/mind.php">Mind</a></li>';
                     echo '<li><a href="/view/body.php">Body</a></li>';
                     echo '<li><a href="/view/spirit.php">Spirit</a></li>';

@@ -4,11 +4,13 @@ echo "<br />
 			";
 
 $blogPostId = $_REQUEST['blogPostId'];
-
 $Post = getPost($_REQUEST['blogPostId']);
             echo "
                 <h1>$Post[title]</h1>
-                <body>$Post[body]</body><br />";
+                <body>$Post[body]
+								<img src='$Post[image]'/>
+								</body><br />
+								";
 
 echo " <h3>
 				Leave a comment! We love hearing from you!
@@ -26,7 +28,6 @@ $showComments=getCommentsForPost($blogPostId);
 							";
 								}
 ?>
-
 
 
 <form method='post' name='comment'>

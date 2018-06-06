@@ -47,8 +47,10 @@ else{
 
 
 
+//START HERE
 
-//why do we leave form action blank?
+//START HERE
+//why do we leave form action blank? BECAUSE WE'RE  STAYING ON THE SAME PAGE 
 //what is 'name' referring to?
 //lines 18-22 have option value with something inside of '' what are those referring to?
 echo"

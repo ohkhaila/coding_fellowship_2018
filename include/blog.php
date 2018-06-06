@@ -10,7 +10,7 @@ function getPost($blogPostId) {
         array(
             "blogPostId"=>$blogPostId,
         ));
-return $result->fetch();
+return $result -> fetch();
     }
 
 
@@ -36,18 +36,18 @@ return $result->fetch();
 		}
 
 		//i think the function below is not used...
-		function getComments9($blogPostId) {
-				$result=dbQuery("
-						SELECT *
-						FROM comments
-						WHERE blogPostId = :blogPostId
-						",
-						array(
-								"blogPostId"=>$blogPostId,
-						));
-
-		return $result->fetch();
-		}
+		// function getComments9($blogPostId) {
+		// 		$result=dbQuery("
+		// 				SELECT *
+		// 				FROM comments
+		// 				WHERE blogPostId = :blogPostId
+		// 				",
+		// 				array(
+		// 						"blogPostId"=>$blogPostId,
+		// 				));
+		// 
+		// return $result->fetch();
+		// }
 
 		function saveComment($blogPostId){
 		    $name=$_POST['name'];
@@ -74,7 +74,8 @@ return $result->fetch();
 		    ");
 		    return $result->fetch();
 		}
-$blogPostId = $_REQUEST['blogPostId'];
+
+//$blogPostId = $_REQUEST['blogPostId'];
 		//below moved from viewpost.php
 		if(isset($_REQUEST['commentFormSubmit'])) {
 		     saveComment($blogPostId);

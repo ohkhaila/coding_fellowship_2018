@@ -39,19 +39,21 @@
 -->
 		<h3 style = 'text-align: center;'> Peep my blog post...
 		</h3>
+		<?php
+
+		    $posts = getAllBlogPosts();
+				foreach($posts as $index => $post){
+								echo "
+								<li>
+										<a href = '/view/viewpost.php?blogPostId=$index'>$post[title]</a>
+										";
+				}
+
+
+		 ?>
+
+<br /> <br /> <br />
+
 
            </body>
    </html>
-
-<?php
-
-    $posts = getAllBlogPosts();
-		foreach($posts as $index => $post){
-						echo "
-						<li>
-								<a href = '/view/viewpost.php?blogPostId=$index'>$post[title]</a>
-								";
-		}
-
-
- ?>
