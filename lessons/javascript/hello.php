@@ -122,6 +122,14 @@ Placing a JavaScript in an external file has the following advantages:
 				// Use the following syntax to access an object method.
 				// objectName.methodName()
 
+				//OBJECT TYPR can be used to create a number of objects of a single type --> use object constructor function
+				function person(name, age, color){
+					this.name = name;
+					this.age = age;
+					this.favColor = color;
+				}
+				//once you have the object construction, you can use the new keyword to create new objects of the same type.
+
 			</script>
 
 	</body>

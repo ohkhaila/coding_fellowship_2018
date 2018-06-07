@@ -1,87 +1,84 @@
+<html>
+<br /><br />
+</html>
 <?php
 
-//This function is getting a secific blog post from the database
-function getPost($blogPostId) {
-    $result=dbQuery("
-        SELECT *
-        FROM posts
-        WHERE blogPostId = :blogPostId
-        ",
-        array(
-            "blogPostId"=>$blogPostId,
-        ));
-return $result -> fetch();
-    }
+	function getPost($blogPostId) {
+	    $result=dbQuery("
+	        SELECT *
+	        FROM posts
+	        WHERE blogPostId = :blogPostId
+	        ",
+	      array(
+	            "blogPostId"=>$blogPostId,
+	        ));
+				return $result -> fetch();
+  }
+
+	function getAllBlogPosts(){
+	        $result=dbQuery("
+	            SELECT *
+	            FROM posts
+	        ");
+	    	return $result->fetchAll();
+	 }
 
 
-//This function is getting all blog posts from the database
-    function getAllBlogPosts(){
-        $result=dbQuery("
-            SELECT *
-            FROM posts
-        ");
+	function getCommentsForPost($blogPostId){
 
-    return $result->fetchAll();
-    }
+			    $result=dbQuery("
+			    SELECT *
+			    FROM comments
+			    WHERE blogPostId = :blogPostId
+			    ",
+					array('blogPostId' => $blogPostId));
+			    return $result->fetchAll();
+	}
 
+			//i think the function below is not used...
+			// function getComments9($blogPostId) {
+			// 		$result=dbQuery("
+			// 				SELECT *
+			// 				FROM comments
+			// 				WHERE blogPostId = :blogPostId
+			// 				",
+			// 				array(
+			// 						"blogPostId"=>$blogPostId,
+			// 				));
+			//
+			// return $result->fetch();
+			// }
 
-		function getCommentsForPost($blogPostId){
+			function saveComment($blogPostId){
+			    $name=$_POST['name'];
+			    $email=$_POST['email'];
+			   	$comment=$_POST['comment'];
 
-		    $result=dbQuery("
-		    SELECT *
-		    FROM comments
-		    WHERE blogPostId = :blogPostId
-		    ", array('blogPostId' => $blogPostId));
-		    return $result->fetchAll();
-		}
+			    $result=dbQuery("INSERT INTO comments (blogPostId, name, email, comment)
+			    VALUES (:blogPostId, :name, :email, :comment)",
 
-		//i think the function below is not used...
-		// function getComments9($blogPostId) {
-		// 		$result=dbQuery("
-		// 				SELECT *
-		// 				FROM comments
-		// 				WHERE blogPostId = :blogPostId
-		// 				",
-		// 				array(
-		// 						"blogPostId"=>$blogPostId,
-		// 				));
-		// 
-		// return $result->fetch();
-		// }
+			    array(
+			        'blogPostId'=>$blogPostId ,
+			        'name'=>$name,
+			        'email'=>$email,
+			        'comment'=>$comment,
+			    ));
+			}
 
-		function saveComment($blogPostId){
-		    $name=$_POST['name'];
-		    $email=$_POST['email'];
-		   	$comment=$_POST['comment'];
+			function getComment($commentId){
 
-		    $result=dbQuery("INSERT INTO comments (blogPostId, name, email, comment)
-		    VALUES (:blogPostId, :name, :email, :comment)",
+			    $result=dbQuery("
+			    SELECT*
+			    FROM comments
+			    WHERE commentId=commentId
+			    ");
+			    return $result->fetch();
+			}
 
-		    array(
-		        'blogPostId'=>$blogPostId ,
-		        'name'=>$name,
-		        'email'=>$email,
-		        'comment'=>$comment,
-		    ));
-		}
+	$blogPostId = $_REQUEST['blogPostId'];
+			if(isset($_REQUEST['commentFormSubmit'])) {
 
-		function getComment($commentId){
-
-		    $result=dbQuery("
-		    SELECT*
-		    FROM comments
-		    WHERE commentId=commentId
-		    ");
-		    return $result->fetch();
-		}
-
-//$blogPostId = $_REQUEST['blogPostId'];
-		//below moved from viewpost.php
-		if(isset($_REQUEST['commentFormSubmit'])) {
-		     saveComment($blogPostId);
-		}
+			     saveComment($blogPostId);
+			}
 
 		?>
-		<html>
-
-		</html>

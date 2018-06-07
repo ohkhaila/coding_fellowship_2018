@@ -1,39 +1,39 @@
 <?php
-    include('init.php');
-echo "<br />
-			";
+	   include('init.php');
+				echo "<br /> <br /> <br />";
 
-$blogPostId = $_REQUEST['blogPostId'];
-$Post = getPost($_REQUEST['blogPostId']);
-            echo "
-                <h1>$Post[title]</h1>
-                <body>$Post[body]
-								<img src='$Post[image]'/>
-								</body><br />
-								";
 
-echo " <h3>
-				Leave a comment! We love hearing from you!
-			</h3>
-		";
+		$blogPostId = $_REQUEST['blogPostId'];
+		$Post = getPost($_REQUEST['blogPostId']);
+		            echo "
+		                <h1>$Post[title]</h1>
+		                <body>$Post[body]
+										<img src='$Post[image]'  style='display: block; margin-left:auto; margin-right:auto; height: 50vh;'/>
+										</body><br />
+										";
 
-$showComments=getCommentsForPost($blogPostId);
-	foreach ($showComments as $comment){
-				   echo "
-					 <div class = comment>
-							<h2>".$comment['name']."</h2>
-					   	<body>".$comment['comment']."</body> <br />
-							<body>".$comment['timestamp']."
-					</div>	<br/>
+								echo " <h3>
+												Leave a comment! We love hearing from you!
+											</h3>
+										";
+
+		$showComments=getCommentsForPost($blogPostId);
+			foreach ($showComments as $comment){
+						   echo "
+							 <div class = comment>
+									<h2>".$comment['name']."</h2>
+							   	<body>".$comment['comment']."</body> <br />
+									<body>".$comment['timestamp']."
+							</div>	<br/>
 							";
-								}
+			}
 ?>
 
 
-<form method='post' name='comment'>
-	NAME:		 <input type = 'text' name='name' id='name'/><br/>
-	Email:		<input type = 'text' name='email' id='email'/><br/>
-	Comment:	<input type="hidden" name="getCommentsForPost" value="true"/>
-						<textarea name='comment' id='comment'></textarea>
-						<input type='submit' name='commentFormSubmit' value='Submit'/>
-</form>
+	<form method='post' name='comment'>
+		NAME:		 <input type = 'text' name='name' id='name'/><br/>
+		Email:		<input type = 'text' name='email' id='email'/><br/>
+		Comment:	<input type="hidden" name="getCommentsForPost" value="true"/>
+							<textarea name='comment' id='comment'></textarea>
+							<input type='submit' name='commentFormSubmit' value='Submit'/>
+	</form>
