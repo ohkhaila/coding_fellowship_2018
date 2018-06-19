@@ -1,21 +1,17 @@
 <?php
-//start the session
 session_start();
 
-$email = isset($_REQUEST['email']);
-$password = isset($_REQUEST['password']);
-
 function getSpecificUser($email){
-	return $user = dbQuery("
+	$user = dbQuery("
 	SELECT *
 	FROM users
 	WHERE email = :email
 	",
 	array(
 		"email" => $email
-	)) -> fetch(); //only need the row that gets selected
+	));
+	 return $user -> fetch(); //only need the row that gets selected
 }
-
 function verifyLogin($email, $password){
 	$user = getSpecificUser($email);
 	$userEmail = $user['email'];
@@ -50,7 +46,7 @@ function verifyLogin($email, $password){
 		<a href = '/view/login.php'>Click here to try logging in again! </a>";
 	}
 }
-function verifyUser(){
+function verifyUserIsLoggedIn(){
 	$loggedIn  = false;
 	if(isset($_SESSION['userID'])){
 		$loggedIn = true;
@@ -75,6 +71,7 @@ function userSignUp($firstName, $lastname, $email, $password){
 	echo "You're all signed up! <br />
 	<a href = '/admin/index.php'>Click here to go to the admin section </a>";
 }
+//haven't called this function anywhere yet!
 ?>
 
 <?php

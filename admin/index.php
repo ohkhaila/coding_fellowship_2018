@@ -1,3 +1,6 @@
+<?php
+verifyUserIsLoggedIn();
+ ?>
 <html>
     </br>
     </br>
