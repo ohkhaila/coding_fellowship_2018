@@ -35,7 +35,7 @@
 			    return $result->fetchAll();
 	}
 
-			//i think the function below is not used...
+//			i think the function below is not used...
 			// function getComments9($blogPostId) {
 			// 		$result=dbQuery("
 			// 				SELECT *
@@ -45,10 +45,10 @@
 			// 				array(
 			// 						"blogPostId"=>$blogPostId,
 			// 				));
-			//
+
 			// return $result->fetch();
 			// }
-
+$blogPostId = isset($_REQUEST['blogPostId']);
 			function saveComment($blogPostId){
 			    $name=$_POST['name'];
 			    $email=$_POST['email'];
@@ -75,7 +75,7 @@
 			    return $result->fetch();
 			}
 
-	$blogPostId = $_REQUEST['blogPostId'];
+	if(isset($_REQUEST['blogPostId'])) ;
 			if(isset($_REQUEST['commentFormSubmit'])) {
 
 			     saveComment($blogPostId);
