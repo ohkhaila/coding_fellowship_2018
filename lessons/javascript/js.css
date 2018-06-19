@@ -1,0 +1,60 @@
+/* #stopWatch{
+	 background-color: grey;
+	 width: 300px;
+	 length: 200px;
+	 text-align: center;
+	 display: block;
+	 padding: 15px;
+	 margin: 5px;
+}
+	#hours{
+		padding: 15px;
+		margin: 10px;
+		border: dashed;
+	}
+	#minutes{
+		padding: 15px;
+		margin: 10px;
+		border: dashed;
+	}
+	#seconds{
+		margin: 10px;
+		padding: 15px;
+		border: dashed;
+	}
+		.button{
+			color: white;
+			width: 80px;
+		}
+			#startButton{
+				background-color: green;
+			}
+			#stopButton{
+				background-color: red;
+			}
+			#clearButton{
+				background-color: pink;
+			} */
+
+ #timer, #fulltime {
+	 width: auto;
+	 height: auto;
+	 padding: 10px;
+	 font-weight: bold;
+	 font-family: tahoma;
+	 display: block; border: 1px solid #eee;
+	 text-align: center;
+	 box-shadow: 0 0 5px #ccc;
+	 background: #fbfbf0;
+	 color: darkblue;
+	 border-bottom:4px solid darkgrey;
+	}
+	button {
+		cursor: pointer;
+		font-weight: 700;
+	}
+	#fulltime {
+		display:none;
+		font-size:16px;
+		font-weight:bold;
+	}
