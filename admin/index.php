@@ -15,9 +15,10 @@ include ('config/init.php');
 $Posts = getAllBlogPosts();
 
 foreach($Posts as $Post){
-    echo "<a href=/admin/edit_post.php?BlogPostId=$Post[PostId]>$Post[Title] </a><br/>";
+    echo "<a href=/admin/edit_post.php?BlogPostId=$Post[blogPostId]>$Post[title] </a><br/>";
 //Here we're echoing the link then the text(in this case Title) then closing the a tag
 }
-
-
+echo "You are logged in as user". $_SESSION['userID']."
+<br /> <br />
+<a href = 'logout.php'>log out</a>";
 ?>

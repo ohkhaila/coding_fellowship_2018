@@ -10,8 +10,8 @@ if(isset($_REQUEST['submitLogin'])){
 		$errors['password'] = "Password is required";
 	}
 	if(sizeof($errors) == 0){
-		//echo verifyUser($_REQUEST['email'], $_REQUEST['password']);
-	//	exit;
+		echo verifyLogin($_REQUEST['email'], $_REQUEST['password']);
+		exit;
 	}
 }
 var_dump($_REQUEST);

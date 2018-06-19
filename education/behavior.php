@@ -149,26 +149,27 @@ if(isset($_REQUEST['educationFormSubmit'])){
                         //          postResults($_REQUEST['firstname'], $_REQUEST['Directions'],  $_REQUEST['Attitude'], $_REQUEST['Materials'], $_REQUEST['$Respect'], $_REQUEST['TurnIn']);
 
                           }
-                        function postResults($firstname, $Directions, $Attitude, $Materials, $Respect, $TurnIn){
-                             echo "$firstname, $Directions, $Attitude, $Materials, $Respect, $TurnIn";
+                        function postResults($firstName, $directions, $attitude, $materials, $respect, $turnIn){
+                             echo "$firstName, $directions, $attitude, $materials, $respect, $turnIn";
                          }
 
                         function insertResults($firstname, $Directions, $Attitude, $Materials, $Respect, $TurnIn){
-                              $result = dbQuery ("INSERT INTO education(FirstName, Directions, Attitude, Materials, Respect, TurnIn)
-                              VALUES (:FirstName, :Directions, :Attitude, :Materials, :Respect, :TurnIn)",
+                              $result = dbQuery ("INSERT INTO education(firstName, directions, attitude, materials, respect, turnIn)
+                              VALUES (:firstName, :directions, :attitude, :materials, :respect, :turnIn)",
                               array(
-                                  $FirstName=>'Firstname',
-                                  $Directions=>'Directions',
-                                  $Attitude=>'Attitude',
-                                  $Materials=>'Materials',
-                                  $Respect=>'Respect',
-                                  $TurnIn=>'Turnin',
+                                  $firstName=>'firstName',
+                                  $directions=>'directions',
+                                  $attitude=>'attitude',
+                                  $materials=>'materials',
+                                  $respect=>'respect',
+                                  $turnIn=>'turnIn',
                               ));
                           }
                           function getAllResults(){
                               $result = dbQuery("
                               SELECT*
                               FROM education
+							  WHERE studentID = :studentID
                               ");
                               return $result->fetchAll();
                           }
