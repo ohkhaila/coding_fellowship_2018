@@ -1,5 +1,7 @@
 <?php
-include('init.php') ?>
+include('init.php')
+verifyUser();
+?>
 <html>
     <title>New Post!</title>
 

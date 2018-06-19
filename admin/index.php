@@ -1,3 +1,6 @@
+<?php
+verifyUser();
+ ?>
 <html>
     </br>
     </br>
