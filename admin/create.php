@@ -1,6 +1,6 @@
 <?php
 include('init.php')
-verifyUser();
+verifyUserIsLoggedIn();
 ?>
 <html>
     <title>New Post!</title>

@@ -1,5 +1,5 @@
 <?php
-verifyUser();
+verifyUserIsLoggedIn();
  ?>
 <html>
     </br>
