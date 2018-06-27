@@ -1,5 +1,7 @@
 <?php
 include ('init.php');
+verifyUserIsLoggedIn();
+
 
 $Post = getPost($_REQUEST['BlogPostId']);
     echo "

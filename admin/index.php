@@ -1,7 +1,8 @@
+<?php
+include ('init.php');
+verifyUserIsLoggedIn(); ?>
 <html>
-    </br>
-    </br>
-    </br>
+    </br></br></br>
         <title>Admin</title>
         <h1> Admin</h1>
             <a href="/admin/create.php"><h2>New Post</h2></a></li>
@@ -9,9 +10,6 @@
         <h2>Edit Post</h2>
 </html>
 <?php
-
-include ('config/init.php');
-
 $Posts = getAllBlogPosts();
 
 foreach($Posts as $Post){

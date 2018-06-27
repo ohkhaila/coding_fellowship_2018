@@ -50,7 +50,7 @@ function verifyLogin($email, $password){
 		<a href = '/view/login.php'>Click here to try logging in again! </a>";
 	}
 }
-function verifyUser(){
+function verifyUserIsLoggedIn(){
 	$loggedIn  = false;
 	if(isset($_SESSION['userID'])){
 		$loggedIn = true;
@@ -61,7 +61,11 @@ function verifyUser(){
 	}
 }
 
-function userSignUp($firstName, $lastname, $email, $password){
+function userSignUp($firstName, $lastName, $email, $password){
+	$firstName = $_REQUEST['firstName'];
+	$lastName = $_REQUEST['lastName'];
+	$email =  $_REQUEST['email'];
+	$password = $_REQUEST['password'];
 	dbQuery("
 	INSERT INTO users (firstname, lastName, email, password)
 	VALUES (:firstName, :lastName, :email, :password)",

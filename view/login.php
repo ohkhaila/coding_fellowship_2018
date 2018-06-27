@@ -14,8 +14,6 @@ if(isset($_REQUEST['submitLogin'])){
 		exit;
 	}
 }
-var_dump($_REQUEST);
-
  ?>
 
 <form action = '' method = 'post' name = 'login'>
