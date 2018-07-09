@@ -21,17 +21,6 @@ function verifyLogin($email, $password){
 	$userEmail = $user['email'];
 	$userPassword = $user['password'];
 	$userID = $user['userID'];
-	dbQuery("
-		SELECT *
-		FROM users
-		WHERE email = :email
-		AND password = :password
-		",
-		array(
-			"email" => $email,
-			"password" => $password,
- 		)
-	);
 	if ($userEmail == $email && $userPassword == $password){
 		$_SESSION['userID'] = $userID;
 		echo "Login successful! <br />
