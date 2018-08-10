@@ -65,7 +65,7 @@
 			Email:		<input type = 'text' name='email' id='email'/><br/>
 			Comment:	<input type="hidden" name="getCommentsForPost" value="true"/>
 								<textarea name='comment' id='comment'></textarea>
-			<input type = 'button' onclick = 'saveAjaxComment()' value = 'Save Comment'/>
+			<input type = 'button' onclick = 'saveAjaxComment()' name = 'submitComment' value = 'Save Comment'/>
 			<div id = 'putTheCommentHere'></div>
 		</div>
 	</body>

@@ -76,7 +76,7 @@ $blogPostId = isset($_REQUEST['blogPostId']);
 			}
 
 	if(isset($_REQUEST['blogPostId'])) ;
-			if(isset($_REQUEST['commentFormSubmit'])) {
+			if(isset($_REQUEST['submitComment'])) {
 
 			     saveComment($blogPostId);
 			}
